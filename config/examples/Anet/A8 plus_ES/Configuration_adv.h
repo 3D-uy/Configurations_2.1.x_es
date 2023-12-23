@@ -685,7 +685,7 @@
  * Se pueden asignar varios extrusores al mismo pin, en cuyo caso
  * el ventilador se encenderá cuando cualquiera de los extrusores seleccionados supere el umbral.
  */
-#define E0_AUTO_FAN_PIN P2_04 //NICO E0 FAN
+#define E0_AUTO_FAN_PIN -1
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -960,7 +960,7 @@
 
   // Safety: The probe needs time to recognize the command.
   //         Minimum command delay (ms). Enable and increase if needed.
-  #define BLTOUCH_DELAY 400   //NICO BLTOUCH DELAY 500
+  //#define BLTOUCH_DELAY 500
 
   /**
    * Configuración para BLTouch Classic 1.2, 1.3 o BLTouch Smart 1.0, 2.0, 2.2, 3.0, 3.1 y la mayoría de los clones:
@@ -1007,7 +1007,7 @@
    *
    * Establece el estado predeterminado aquí, cámbialo con 'M401 S' o a través de la interfaz, usa M500 para guardar y M502 para restablecer.
    */
-  //#define BLTOUCH_HS_MODE true       //NICO NEED TO CHECK
+  //#define BLTOUCH_HS_MODE true
 
   #ifdef BLTOUCH_HS_MODE
     // El desplazamiento Z del probe (M851 Z) es la altura en la que se activa la sonda.
@@ -1024,7 +1024,7 @@
  * Autoalineación de los motores paso a paso Z
  * Agrega el comando G34 para alinear automáticamente los motores paso a paso Z utilizando una sonda de cama.
  */
-//#define Z_STEPPER_AUTO_ALIGN    //NICO CHECK G34
+//#define Z_STEPPER_AUTO_ALIGN
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   /**
    * Define las posiciones X e Y de la sonda para Z1, Z2 [, Z3 [, Z4]]
@@ -1204,8 +1204,8 @@
  *  X<1>         Establece los parámetros dados solo para el eje X.
  *  Y<1>         Establece los parámetros dados solo para el eje Y.
  */
-#define INPUT_SHAPING_X   //NICO CHECK
-#define INPUT_SHAPING_Y   //NICO CHECK
+//#define INPUT_SHAPING_X   
+//#define INPUT_SHAPING_Y  
 #if ANY(INPUT_SHAPING_X, INPUT_SHAPING_Y)
   #if ENABLED(INPUT_SHAPING_X)
     #define SHAPING_FREQ_X  40          // (Hz) Frecuencia de resonancia dominante predeterminada en el eje X.
@@ -1629,7 +1629,7 @@
    * Menú de control de LED
    * Agregar control de LED al menú LCD
    */
-  #define LED_CONTROL_MENU    //NICO BTT MINI
+  //#define LED_CONTROL_MENU
   #if ENABLED(LED_CONTROL_MENU)
     #define LED_COLOR_PRESETS                 // Habilitar la opción de menú de colores predefinidos
     //#define NEO2_COLOR_PRESETS              // Habilitar una segunda opción de menú de colores predefinidos para NeoPixel
@@ -1639,7 +1639,7 @@
       #define LED_USER_PRESET_BLUE         0  // Valor AZUL definido por el usuario
       #define LED_USER_PRESET_WHITE      255  // Valor BLANCO definido por el usuario
       #define LED_USER_PRESET_BRIGHTNESS 255  // Intensidad definida por el usuario
-      #define LED_USER_PRESET_STARTUP       //NICO BTT MINI   // Hacer que la impresora muestre el color predefinido por el usuario al iniciar
+      //#define LED_USER_PRESET_STARTUP       // Hacer que la impresora muestre el color predefinido por el usuario al iniciar
     #endif
     #if ENABLED(NEO2_COLOR_PRESETS)
       #define NEO2_USER_PRESET_RED        255  // Valor ROJO definido por el usuario
@@ -1921,7 +1921,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION ONBOARD   //NICO
+  #define SDCARD_CONNECTION ONBOARD
 
   // Habilita si la detección de SD no es funcional (por ejemplo, mediante el uso de un extensor de SD)
   //#define NO_SD_DETECT
@@ -2331,12 +2331,12 @@
  *
  * Consulta https://marlinfw.org/docs/features/lin_advance.html para obtener instrucciones completas.
  */
-//#define LIN_ADVANCE   //NICO BIQU H2 STANDARD K_FACTOR 0.2 FACTORY EXTRUDER
+//#define LIN_ADVANCE    
 #if ENABLED(LIN_ADVANCE)
   #if ENABLED(DISTINCT_E_FACTORS)
-    #define ADVANCE_K { 0.03 }    // (mm) Longitud de compresión por 1 mm/s de velocidad del extrusor, por extrusor
+    #define ADVANCE_K { 0.22 }    // (mm) Longitud de compresión por 1 mm/s de velocidad del extrusor, por extrusor
   #else
-    #define ADVANCE_K 0.03        // (mm) Longitud de compresión aplicada a todos los extrusores
+    #define ADVANCE_K 0.22        // (mm) Longitud de compresión aplicada a todos los extrusores
   #endif
   //#define ADVANCE_K_EXTRA       // Agregar una segunda constante de avance lineal, configurable con M900 L.
   //#define LA_DEBUG              // Imprimir información de depuración en serie durante el funcionamiento. Desactivar para uso en producción.
@@ -2988,7 +2988,7 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC_CONFIG(X)
-    #define X_CURRENT       580        //NICO CREALITY 40-34  // (mA) Corriente RMS. Multiplica por 1.414 para obtener la corriente máxima.
+    #define X_CURRENT       800        // (mA) Corriente RMS. Multiplica por 1.414 para obtener la corriente máxima.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) Corriente RMS para el homing sin sensor
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.11     // Multiplicado por 1000 para TMC26X
@@ -3356,7 +3356,7 @@
    * M912: Borrar la bandera de condición de advertencia previa de sobrecalentamiento del controlador de paso a paso.
    * M122: Informar los parámetros del controlador (requiere TMC_DEBUG)
    */
-  #define MONITOR_DRIVER_STATUS   //NICO
+  //#define MONITOR_DRIVER_STATUS
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
@@ -3469,7 +3469,7 @@
    * Habilitar el comando de depuración M122 para los controladores de motor paso a paso TMC.
    * M122 S0/1 habilitará el informe continuo.
    */
-  #define TMC_DEBUG   //NICO
+  //#define TMC_DEBUG
 
   /**
    * Puedes establecer tu propia configuración avanzada llenando las funciones predefinidas.
@@ -4513,7 +4513,7 @@
 //
 // M43 - mostrar estado de pines, alternar pines, vigilar pines, vigilar topes de final de carrera y alternar LED, probar sonda de servo
 //
-#define PINS_DEBUGGING    //NICO
+//#define PINS_DEBUGGING
 
 // Activar pruebas que se ejecutarán al inicio y generarán un informe
 //#define MARLIN_TEST_BUILD

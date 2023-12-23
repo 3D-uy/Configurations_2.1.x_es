@@ -1592,10 +1592,10 @@
 #define PROBING_MARGIN 10
 
 // Velocidad de desplazamiento en los ejes X e Y (mm/min) entre sondas
-#define XY_PROBE_FEEDRATE (200*60)    //NICO BLTOUCH SPEED (133*60)
+#define XY_PROBE_FEEDRATE (133*60)
 
 // Velocidad de avance (mm/min) para el primer acercamiento al sondear dos veces (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (10*60)    //NICO BLTOUCH SPEED (6*60)#define Z_PROBE_FEEDRATE_FAST (6*60)
+#define Z_PROBE_FEEDRATE_FAST (6*60)
 
 // Velocidad de avance (mm/min) para el sondeo "preciso" de cada punto
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -2038,7 +2038,7 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR    //NICO BL.
+//#define AUTO_BED_LEVELING_BILINEAR   
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -2140,7 +2140,7 @@
 
     // ¿Continuar la inclinación implícita más allá de la cuadrícula probada?
     // El valor predeterminado es mantener la altura del borde más cercano.
-    #define EXTRAPOLATE_BEYOND_GRID   //NICO BL.
+    //#define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Subdivisión de la cuadrícula mediante el método Catmull-Rom.
@@ -2216,7 +2216,7 @@
  * Agrega un submenú de nivelación de cama para ABL o MBL.
  * Incluye un procedimiento guiado si la sonda manual está habilitada.
  */
-#define LCD_BED_LEVELING    //NICO 
+//#define LCD_BED_LEVELING
 
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Tamaño del paso al sondear manualmente el eje Z.
@@ -2283,7 +2283,7 @@
  * - Permite la homing en Z solo cuando las posiciones XY son conocidas y confiables.
  * - Si los controladores de los motores están en reposo, puede ser necesario hacer la homing en XY nuevamente antes de la homing en Z.
  */
-#define Z_SAFE_HOMING   //NICO
+//#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // Punto X para la homing en Z
@@ -2433,7 +2433,7 @@
  *    P1  Siempre levanta la boquilla a la altura de estacionamiento especificada.
  *    P2  Levanta la boquilla la cantidad especificada por Z-park, limitada a Z_MAX_POS.
  */
-#define NOZZLE_PARK_FEATURE   //NICO
+//#define NOZZLE_PARK_FEATURE
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Especifica una posición de estacionamiento como { X, Y, Z_elevar }
@@ -3558,9 +3558,9 @@
 #endif
 
 // Soporte para controlador de LED Adafruit NeoPixel
-#define NEOPIXEL_LED    //NICO BTT MINI  12864
+//#define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
-  #define NEOPIXEL_TYPE          NEO_RGB //NICO // NEO_GRBW, NEO_RGBW, NEO_GRB, NEO_RBG, etc.
+  #define NEOPIXEL_TYPE          NEO_RGB  // NEO_GRBW, NEO_RGBW, NEO_GRB, NEO_RBG, etc.
                                           // Ver https://github.com/adafruit/Adafruit_NeoPixel/blob/master/Adafruit_NeoPixel.h
   //#define NEOPIXEL_PIN                4 // Pin de conexión del LED
   //#define NEOPIXEL2_TYPE  NEOPIXEL_TYPE
