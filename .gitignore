@@ -1,41 +1,41 @@
 #
-# OS
+# Sistema operativo
 #
 applet/
 *.DS_Store
 
-# Prerequisites
+# Prerrequisitos
 *.d
 
-# Compiled Object files
+# Archivos de objetos compilados
 *.slo
 *.lo
 *.o
 *.obj
 
-# Precompiled Headers
+# Encabezados precompilados
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
+# Bibliotecas dinámicas compiladas
 *.so
 *.dylib
 *.dll
 
-# Fortran module files
+# Archivos de módulos Fortran
 *.mod
 *.smod
 
-# Compiled Static libraries
+# Bibliotecas estáticas compiladas
 *.lai
 *.la
 *.a
 *.lib
 
-# Executables
+# Ejecutables
 *.exe
 *.out
 *.app
 
-# System files
+# Archivos del sistema
 .DS_Store

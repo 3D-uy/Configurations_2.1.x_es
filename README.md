@@ -1,14 +1,12 @@
-# Configurations
-Pre-tested Configurations for Marlin Firmware bugfix-2.1.x
+// Configuraciones
+// Configuraciones preprobadas para la versión bugfix-2.1.x del firmware Marlin.
 
-Marlin Firmware is configured using two files:
+// El firmware Marlin se configura mediante dos archivos:
+// - `Configuration.h` contiene opciones de configuración básicas como la geometría de la máquina.
+// - `Configuration_adv.h` contiene configuraciones opcionales para funciones avanzadas y de bajo nivel.
 
-- `Configuration.h` contains core configuration options like machine geometry.
-- `Configuration_adv.h` contains optional settings for advanced and low level features.
+// Para las pantallas LCD gráficas, también se pueden incluir estos archivos:
+// - `_Bootscreen.h` proporciona el mapa de bits para una pantalla de inicio personalizada.
+// - `_Statusscreen.h` proporciona mapas de bits para personalizar la pantalla de estado.
 
-For Graphical LCD these files may also be included:
-
-- `_Bootscreen.h` provides the bitmap for a custom Boot Screen.
-- `_Statusscreen.h` provides bitmaps to customize the Status Screen.
-
-See the [Configuration page](https://marlinfw.org/docs/configuration/configuration.html) for more information about configuration and individual configuration options.
+// Consulta la [página de configuración](https://marlinfw.org/docs/configuration/configuration.html) para obtener más información sobre la configuración y opciones de configuración individuales.
