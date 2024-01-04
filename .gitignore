@@ -37,5 +37,5 @@ applet/
 *.out
 *.app
 
-# Tools
-.vscode/
+# System files
+.DS_Store
