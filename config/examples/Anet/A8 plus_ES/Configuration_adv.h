@@ -19,9 +19,7 @@
  * junto con este programa.  Si no, consulte <https://www.gnu.org/licenses/>.
  *
  */
-#pragma once
-
-#define CONFIG_EXAMPLES_DIR "Anet/A8plus"
+#pragma once    
 
 /**
  * Configuration_adv.h
@@ -586,6 +584,9 @@
   #define CONTROLLERFAN_SPEED_IDLE        0 // (0-255) Velocidad en reposo, utilizada cuando los motores están desactivados
   #define CONTROLLERFAN_IDLE_TIME        60 // (segundos) Tiempo adicional para mantener el ventilador funcionando después de desactivar los motores
 
+  //#define CONTROLLERFAN_KICKSTART_TIME  100  // Tiempo de arranque para el ventilador del controlador (ms)
+  //#define CONTROLLERFAN_KICKSTART_POWER 180  // Potencia de arranque para el ventilador del controlador (64-255)
+
   // Utilizar TEMP_SENSOR_BOARD como disparador para habilitar el ventilador del controlador
   //#define CONTROLLER_FAN_MIN_BOARD_TEMP 40  // (°C) Encender el ventilador si la placa alcanza esta temperatura
 
@@ -671,8 +672,6 @@
   //#define NUM_REDUNDANT_FANS 1        // Número de ventiladores secuenciales para sincronizar con el Ventilador 0
 #endif
 
-// @section extruder
-
 /**
  * Ventiladores de enfriamiento del extrusor
  *
@@ -698,6 +697,9 @@
 
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
 #define EXTRUDER_AUTO_FAN_SPEED 255   // 255 == máxima velocidad
+//#define EXTRUDER_AUTO_FAN_KICKSTART_TIME  100  // Tiempo de arranque automático del ventilador de la extrusora (ms)
+//#define EXTRUDER_AUTO_FAN_KICKSTART_POWER 180  // Potencia de arranque automático del ventilador de la extrusora (64-255)
+
 #define CHAMBER_AUTO_FAN_TEMPERATURE 30
 #define CHAMBER_AUTO_FAN_SPEED 255
 #define COOLER_AUTO_FAN_TEMPERATURE 18
@@ -2949,6 +2951,7 @@
 
   //#define FILAMENT_LOAD_UNLOAD_GCODES           // Agregar códigos G M701/M702 para cargar/descargar, además de cargar/descargar en el menú LCD Prepare.
   //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Permitir que M702 descargue todos los extrusores por encima de una temperatura objetivo mínima (establecida por M302)
+  #define CONFIGURE_FILAMENT_CHANGE               // Agregar código G M603 y elementos de menú. Requiere ~1.3K bytes de flash.
 #endif
 
 // @section tmc_smart
@@ -3965,11 +3968,21 @@
 //#define REPETIER_GCODE_M360     // Agregar comandos originalmente de Repetier FW
 
 /**
- * Habilita esta opción para una compilación más liviana de Marlin que elimina todos
- * los desplazamientos del espacio de trabajo, simplificando las transformaciones de coordenadas, nivelación, etc.
- *
- *  - M206 y M428 están deshabilitados.
- *  - G92 volverá a su comportamiento de Marlin 1.0.
+ * Habilitar banderas de depuración M111 1=ECHO, 2=INFO, 4=ERRORES (no implementado).
+ * Desactivar para ahorrar espacio en flash. Algunos hosts (Repetier Host) pueden depender de esta característica.
+ */
+#define DEBUG_FLAGS_GCODE
+
+/**
+ * M115 - Informar capacidades. Desactivar para ahorrar ~1150 bytes de flash.
+ *        Algunos hosts (y pantallas TFT serie) dependen de esta característica.
+ */
+#define REPORT_CAPABILITIES_GCODE
+
+/**
+ * Habilitar esta opción para una compilación más liviana de Marlin que elimina
+ * compensaciones de espacio de trabajo para optimizar ligeramente el rendimiento.
+ * G92 revertirá a su comportamiento desde Marlin 1.0.
  */
 //#define NO_WORKSPACE_OFFSETS
 
